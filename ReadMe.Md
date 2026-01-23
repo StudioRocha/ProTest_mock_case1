@@ -21,12 +21,10 @@
 2. メールはMailHogにキャプチャされ、実際のメールアドレスには送信されません
 3. メール認証誘導画面（http://localhost/email/guide）に表示される「認証はこちらから」ボタンをサブミットすると、別のタブでMailHogの受信箱（http://localhost:8025/）が開きます
 4. MailHogでメールを確認し、メール内の認証URLをクリックして認証を完了します
-5. オプション：`AUTO_VERIFY_ENABLED=true`に設定すると、自動認証ボタンが表示され、メール内の認証URLを手動でクリックせずに認証を完了できます
 
 **設定について**
-- `.env`ファイルの`MAIL_HOST=mailhog`でMailHogを使用するように設定されています
-- `AUTO_VERIFY_ENABLED=false`（デフォルト）: 自動認証ボタンは表示されません。MailHogでメールを確認し、認証URLをクリックして認証します
-- `AUTO_VERIFY_ENABLED=true`: 自動認証ボタンが表示されます（開発環境で便利な機能）
+- `.env`ファイルの`MAIL_HOST=mailhog`でMailHogを使用するように.envに指定する環境設定が必要(※後述説明有)
+
 
 <div style="color: red; font-weight: bold;">
 
@@ -36,10 +34,10 @@
 
 このアプリケーションでは、商品購入時の決済処理に **Stripe** を使用しています。
 
-**重要**: StripeのPHPライブラリは既に`composer.json`に含まれており、`composer install`で自動的にインストールされます。別途ダウンロードやインストールの必要はありません。ただし、StripeアカウントのAPIキー（`STRIPE_PUBLIC_KEY`と`STRIPE_SECRET_KEY`）の設定は必要です。
+**重要**: StripeのPHPライブラリは既に`composer.json`に含まれており、`composer install`で自動的にインストールされます。別途ダウンロードやインストールの必要はありません。ただし、StripeアカウントのAPIキー（`STRIPE_PUBLIC_KEY`と`STRIPE_SECRET_KEY`）の.envに指定する環境設定が必要(※後述説明有)
 
 **Stripeの役割**
-- クレジットカード決済とコンビニ決済（Konbini）をサポート
+- クレジットカード決済とコンビニ決済をサポート
 - Stripe Checkout APIを使用して決済セッションを作成
 - 決済完了後、自動的に注文データを作成
 
@@ -62,8 +60,8 @@
 4. **決済完了処理**
    - 決済成功後、`stripe.success`ルートで処理
    - セッションIDから決済情報を取得
-   - カード決済の場合：注文データを作成し、商品を売却済みにマーク
-   - コンビニ決済の場合：既に注文データが作成されているため、そのまま完了
+   - カード決済の場合：注文データを作成し、商品を売却済みにマーク。支払ステータスはpaidとなります。
+   - コンビニ決済の場合：既に注文データが作成されているため、そのまま完了。支払ステータスがpayment_pending:支払い待ち状態ですが取引チャット画面は利用できます。
 
 **設定について**
 - `.env`ファイルに以下の設定が必要です※後述説明有：
@@ -247,7 +245,7 @@
 4. .env に以下の環境変数を設定、又は追加
    <BR>
 
-<span style="color: red; font-size: 12px;">Stripeを使う場合は.env STRIPE_PUBLIC_KEY/STRIPE_SECRET_KEY の値を自身の stripe アカウントのダッシュボードから取得して設定をい願いたします。</span>
+<span style="color: red; font-size: 12px;">Stripeを使う場合は.env STRIPE_PUBLIC_KEY/STRIPE_SECRET_KEY の値を自身の stripe アカウントのダッシュボードから取得して設定をおお願いします。</span>
 
 ```text
 # ===========================================
