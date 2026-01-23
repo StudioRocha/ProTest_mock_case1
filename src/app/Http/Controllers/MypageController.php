@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Message;
-use App\Models\Rating;
 
 class MypageController extends Controller
 {
