@@ -503,7 +503,6 @@ php artisan test --testsuite=Feature
 22. **TestID22_TradeCompletedEmailFeatureTest.php** - 取引完了メール送信機能（テスト ID: 22）
 
 ### 注意事項
-
 -   上記コマンドは PHP コンテナ内で実行してください
 -   テスト用データベース（`laravel_test_db`）は本番データベース（`laravel_db`）とは別です
 -   `RefreshDatabase`トレイトにより、テスト実行時に自動的にデータベースがリフレッシュされます
