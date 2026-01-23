@@ -1,0 +1,11 @@
+.p-auth {
+    max-width: 540px;
+    margin: 32px auto 64px;
+}
+.p-auth__title {
+    text-align: center;
+    margin: 16px 0 24px;
+}
+.p-form__submit {
+    margin-top: 24px;
+}

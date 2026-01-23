@@ -1,0 +1,107 @@
+/* 住所変更画面 */
+.p-address-change {
+    max-width: 600px;
+    margin: 24px auto 64px;
+    padding: 0 24px;
+}
+
+.p-address-change__container {
+    padding: 40px;
+}
+
+.p-address-change__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 32px 0;
+    text-align: center;
+}
+
+.p-address-change__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.p-address-change__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.p-address-change__label {
+    font-weight: 700;
+    color: #333;
+}
+
+.p-address-change__input {
+    height: clamp(36px, 3.2vw, 44px);
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.p-address-change__input:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.p-address-change__input--error {
+    border-color: #dc3545;
+}
+
+.p-address-change__input--error:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+}
+
+.p-address-change__error {
+    color: #e60033;
+    font-size: 12px;
+}
+
+.p-address-change__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.p-address-change__submit {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 120px;
+}
+
+.p-address-change__submit:hover {
+    background: #ff5555;
+}
+
+.p-address-change__submit:active {
+    background: #ff5555;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .p-address-change {
+        padding: 0 16px;
+    }
+
+    .p-address-change__container {
+        padding: 24px;
+    }
+
+    .p-address-change__title {
+        font-size: 20px;
+    }
+}

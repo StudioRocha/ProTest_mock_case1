@@ -1,0 +1,393 @@
+/* Layout */
+:root {
+    --header-height: 64px;
+}
+.l-body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+        Meiryo, sans-serif;
+    color: #111;
+}
+.l-header {
+    background: #000;
+    color: #fff;
+}
+.l-header__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    min-height: 64px; /* ヘッダー高さを固定（表示/非表示に関わらず） */
+}
+.l-main {
+    padding: clamp(12px, 2vw, 24px) clamp(12px, 2vw, 24px)
+        clamp(24px, 3vw, 48px);
+    min-height: calc(100vh - var(--header-height));
+}
+.l-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Header */
+.p-header {
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    min-height: 40px; /* ナビ高さを統一 */
+}
+.p-header__left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.p-header__center {
+    display: flex;
+    justify-content: center;
+}
+.p-header__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.p-header__logo {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+.p-header__logo-img {
+    height: clamp(18px, 2.4vw, 22px);
+    width: auto;
+    display: block;
+}
+.p-header__search {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* 768px - 1540px対応: ヘッダーが途切れないように調整 */
+@media (min-width: 768px) and (max-width: 1540px) {
+    .p-header__search {
+        max-width: clamp(400px, 50vw, 560px);
+    }
+    
+    .p-header__nav {
+        gap: clamp(8px, 1vw, 16px);
+    }
+    
+    .c-nav__link {
+        font-size: clamp(13px, 1.3vw, 14px);
+        white-space: nowrap;
+    }
+    
+    .c-button--primary {
+        font-size: clamp(13px, 1.3vw, 14px);
+        padding: 0 clamp(10px, 1.2vw, 16px);
+    }
+}
+.c-search__input {
+    height: 40px;
+}
+.c-search__button {
+    height: 40px;
+}
+.p-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.p-header__auth {
+    display: inline;
+    margin: 0;
+}
+.c-nav__link {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+.c-nav__link:hover {
+    color: #ddd;
+}
+.p-header__auth .c-nav__link {
+    background: transparent;
+    border: none;
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.c-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.c-button--primary {
+    background: #fff;
+    color: #000;
+}
+
+/* Tabs */
+.p-tabs {
+    border-bottom: 1px solid #e5e5e5;
+    margin: clamp(8px, 2vw, 16px) 0 clamp(12px, 2.5vw, 24px);
+}
+
+/* .p-tabsが<ul>の場合 */
+ul.p-tabs {
+    display: flex;
+    gap: clamp(32px, 1.5vw, 64px);
+    list-style: none;
+    margin: clamp(8px, 2vw, 16px) 0 clamp(12px, 2.5vw, 24px);
+    padding: 0;
+}
+
+/* .p-tabs__listがある場合（<nav>内の<ul>） */
+.p-tabs__list {
+    display: flex;
+    gap: clamp(8px, 1.5vw, 16px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.p-tabs__tab {
+    padding: clamp(8px, 1.2vw, 12px) clamp(6px, 1vw, 8px);
+    text-decoration: none;
+    color: #999;
+    border-bottom: 2px solid transparent;
+}
+.p-tabs__tab--active {
+    color: #e60033;
+}
+
+/* Grid */
+.p-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 2.5vw, 40px) clamp(12px, 2vw, 32px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 1200px) {
+    .p-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/* タブレット対応 (768px - 850px) */
+@media (min-width: 768px) and (max-width: 850px) {
+    .p-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(12px, 2vw, 24px) clamp(10px, 1.5vw, 20px);
+    }
+}
+@media (max-width: 900px) {
+    .p-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .p-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card */
+.c-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.c-card__thumb {
+    position: relative;
+}
+.c-card__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #ddd;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.c-card__img--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-weight: 600;
+}
+.c-card__badge {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    background: rgba(255, 81, 81, 0.9);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 26px;
+    font-weight: bold;
+}
+.c-card__name {
+    margin-top: 8px;
+    font-size: clamp(13px, 1.2vw, 14px);
+}
+
+.c-empty {
+    color: #777;
+}
+
+/* Alerts */
+.c-alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 8px 0 16px;
+    font-size: 14px;
+}
+.c-alert--success {
+    background: #e6f6ec;
+    color: #0b6b34;
+    border: 1px solid #bfe8cf;
+}
+.c-alert--error {
+    background: #fdecea;
+    color: #b42318;
+    border: 1px solid #f5c2c0;
+}
+.c-alert--info {
+    background: #eef4ff;
+    color: #1c3faa;
+    border: 1px solid #c8d8ff;
+}
+
+/* PC-first width safety */
+@media (min-width: 1400px) and (max-width: 1540px) {
+    .l-header__inner,
+    .l-container {
+        max-width: 1440px;
+    }
+}
+
+/* Forms */
+/* フォーム全体の幅 */
+.p-auth {
+    max-width: 540px;
+    margin: 32px auto 64px;
+}
+.p-auth__title {
+    font-size: clamp(22px, 2.2vw, 28px);
+    font-weight: 700;
+    text-align: center;
+    margin: 16px 0 24px;
+}
+.p-form {
+    display: grid;
+    gap: clamp(16px, 2.2vw, 30px);
+}
+.p-form__group {
+    display: grid;
+    gap: 8px;
+}
+.p-form__label {
+    font-weight: 700;
+}
+.p-form__control {
+    height: clamp(36px, 3.2vw, 44px);
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+/* textarea は固定高さを解除し、十分な最小高さを確保 */
+textarea.p-form__control {
+    height: auto;
+    min-height: 120px;
+    padding: 12px;
+    line-height: 1.6;
+}
+.p-form__error {
+    color: #e60033;
+    font-size: 12px;
+}
+.p-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+}
+.c-button--outline-danger {
+    border: 1px solid #f12b2b;
+    color: #f12b2b;
+    background: transparent;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+.c-button--outline-danger:hover {
+    background: #f12b2b;
+    color: #fff;
+}
+.p-avatar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.p-avatar__thumb {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #ddd;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.p-avatar__bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.p-avatar__input {
+    display: none;
+}
+.p-form__submit {
+    width: 100%;
+    height: 44px;
+    margin-top: 34px;
+    background: #f12b2b;
+    color: #fff;
+    border: none;
+}
+.p-auth__link {
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* MyPage */
+.p-mypage {
+    max-width: 1000px;
+    margin: 24px auto 64px;
+}
+.p-mypage__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 0 clamp(12px, 6vw, 80px);
+    margin-bottom: 24px;
+}
+.p-mypage__header .c-button--outline-danger {
+    margin-left: auto;
+}
+.p-mypage__name {
+    font-size: 30px;
+    font-weight: 700;
+}
+.p-mypage__tabs {
+    justify-content: flex-start;
+    margin-top: 8px;
+}

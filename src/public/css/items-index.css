@@ -1,0 +1,31 @@
+/* / (トップ) 専用のカード名フォントサイズ拡大 */
+.c-card__name {
+    font-size: clamp(18px, 1.8vw, 20px);
+    font-weight: 500;
+    line-height: 1.5;
+}
+.p-top {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.p-top .p-grid {
+    margin-top: clamp(50px, 2vw, 24px);
+}
+/* タブを商品カードと同じ幅・中央寄せにして、開始位置を揃える */
+.p-top-tabs {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.p-top-tabs .p-tabs {
+    margin-top: clamp(16px, 3vw, 16px); /* 上の余白を広く */
+    border-bottom-width: 2px;
+}
+
+.p-top-tabs .p-tabs__list {
+    padding-left: 0;
+    gap: clamp(16px, 12vw, 62px);
+}
+.p-top-tabs .p-tabs__tab {
+    font-size: clamp(16px, 1.6vw, 20px);
+    font-weight: 600;
+}

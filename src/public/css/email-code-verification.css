@@ -1,0 +1,30 @@
+/* Email Code Verification Page Styles */
+
+/* Hide header elements except logo for email verification page */
+body.email-auth-page .p-header__center,
+body.email-auth-page .p-header__right {
+    display: none;
+}
+
+/* Center the help links */
+.p-auth__help {
+    text-align: center;
+}
+
+.p-auth__help a {
+    display: block;
+    margin: 10px 0;
+}
+
+/* Center and style the message */
+.p-auth__message {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Center and style the label */
+.p-form__label {
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}

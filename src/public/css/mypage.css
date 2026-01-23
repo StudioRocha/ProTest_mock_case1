@@ -1,0 +1,144 @@
+.p-mypage {
+    max-width: 1200px;
+    margin: 24px auto 64px;
+    margin-top: 0;
+}
+.p-mypage__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 0 clamp(12px, 6vw, 80px);
+    padding-left: clamp(120px, 18vw, 200px);
+    margin-bottom: 24px;
+}
+.p-mypage__header .c-button--outline-danger {
+    margin-left: auto;
+}
+.p-mypage__user-info {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 62px; /* ユーザー名(30px) + gap(8px) + 評価エリア(24px) = 62px */
+}
+.p-mypage__name {
+    font-size: 30px;
+    font-weight: 700;
+}
+.p-mypage__rating {
+    display: flex;
+    gap: 2px;
+    min-height: 24px; /* 評価がない場合でも高さを確保 */
+}
+.p-mypage__star {
+    color: #d3d3d3;
+    font-size: 24px;
+    line-height: 1;
+}
+.p-mypage__star--filled {
+    color: #ffd700;
+}
+.p-mypage__tabs {
+    justify-content: flex-start;
+    margin-top: 8px;    
+}
+.p-tabs.p-mypage__tabs,
+.p-mypage__tabs .p-tabs {
+    padding-left: clamp(12px, 6vw, 60px);
+    border-bottom-width: 2px;
+}
+.p-mypage__tabs .p-tabs__list {
+    gap: clamp(16px,10vw, 50px);
+}
+/* マイページ画面の商品名を商品一覧画面と同じスタイルに */
+.p-mypage .c-card__name {
+    font-size: clamp(18px, 1.8vw, 20px);
+    font-weight: 500;
+    line-height: 1.5;
+}
+.p-tabs__tab {
+    position: relative;
+    min-height: 40px; /* アクティブ状態でも高さを一定に保つ */
+    display: flex;
+    align-items: center;
+}
+.p-tabs__badge {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% + 4px);
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+.c-card__thumb {
+    position: relative;
+}
+.c-card__notification {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 50%;
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 6px;
+    z-index: 1;
+}
+
+/* タブレット対応 (768px - 850px) */
+@media (min-width: 768px) and (max-width: 850px) {
+    .p-mypage__header {
+        padding: 0 clamp(12px, 5vw, 70px);
+    }
+    
+    .p-mypage__user-info {
+        margin-left: 35px;
+    }
+    
+    .p-mypage__name {
+        font-size: 26px;
+    }
+    
+    .p-mypage__star {
+        font-size: 22px;
+    }
+    
+    .p-tabs.p-mypage__tabs,
+    .p-mypage__tabs .p-tabs {
+        padding-left: clamp(12px, 5vw, 55px);
+    }
+    
+    .p-tabs__tab {
+        font-size: 14px;
+        padding: 11px clamp(6px, 0.9vw, 8px);
+    }
+    
+    .p-tabs__badge {
+        font-size: 11px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .c-card__name {
+        font-size: clamp(18px, 1.8vw, 20px);
+        font-weight: 500;
+        line-height: 1.5;
+    }
+}
