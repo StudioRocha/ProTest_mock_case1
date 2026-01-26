@@ -251,7 +251,7 @@
 4. .env に以下の環境変数を設定、又は追加
    <BR>
 
-<span style="color: red; font-size: 12px;">Stripeを使う場合は.env STRIPE_PUBLIC_KEY/STRIPE_SECRET_KEY の値を自身の stripe アカウントのダッシュボードから取得して設定をおお願いします。</span>
+<span style="color: red; font-size: 12px;">Stripeを使う場合は.env STRIPE_PUBLIC_KEY/STRIPE_SECRET_KEY の値を自身の stripe アカウントのダッシュボードから取得して設定をお願いします。</span>
 
 ```text
 # ===========================================
