@@ -1,0 +1,132 @@
+erDiagram
+    USERS {
+        UNSIGNED_BIGINT id PK
+        STRING name
+        STRING email UK
+        TIMESTAMP email_verified_at
+        STRING verification_token
+        TIMESTAMP verification_token_expires_at
+        STRING password
+        STRING remember_token
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+    erDiagram
+    PROFILES {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT user_id FK
+        STRING avatar_paths
+        STRING usernames
+        STRING postal_codes
+        STRING addresses
+        STRING building_names
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+    erDiagram
+    CATEGORIES {
+        UNSIGNED_BIGINT id PK
+        STRING category_names
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+erDiagram   
+    ITEMS {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT user_id FK
+        STRING item_image_paths
+        STRING item_names
+        STRING brand_names
+        UNSIGNED_INTEGER item_prices
+        UNSIGNED_INTEGER like_counts
+        UNSIGNED_INTEGER comment_counts
+        STRING item_descriptions
+        UNSIGNED_TINYINT conditions
+        BOOLEAN is_sold
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+ erDiagram   
+    COMMENTS {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT item_id FK
+        UNSIGNED_BIGINT user_id FK
+        STRING comment_body
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+erDiagram  
+    ORDERS {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT user_id FK
+        UNSIGNED_BIGINT item_id FK
+        UNSIGNED_INTEGER total_amount
+        STRING payment_status
+        STRING trade_status
+        STRING payment_method
+        TEXT shipping_address
+        TEXT comment
+        TIMESTAMP buyer_last_viewed_at
+        TIMESTAMP seller_last_viewed_at
+        STRING chat_access_token
+        TIMESTAMP chat_access_token_expires_at
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+ erDiagram  
+    CATEGORY_ITEMS {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT category_id FK
+        UNSIGNED_BIGINT item_id FK
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+  erDiagram  
+    ITEM_LIKES {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT item_id FK
+        UNSIGNED_BIGINT user_id FK
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+ erDiagram   
+    MESSAGES {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT item_id FK
+        UNSIGNED_BIGINT user_id FK
+        TEXT message
+        STRING image_path
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+        TIMESTAMP deleted_at
+    }
+ erDiagram   
+    RATINGS {
+        UNSIGNED_BIGINT id PK
+        UNSIGNED_BIGINT order_id FK
+        UNSIGNED_BIGINT rater_id FK
+        UNSIGNED_BIGINT rated_id FK
+        UNSIGNED_TINYINT rating
+        TIMESTAMP created_at
+        TIMESTAMP updated_at
+    }
+
+    %% リレーション定義
+    USERS ||--o| PROFILES : "USERS.id = PROFILES.user_id"
+    USERS ||--o{ ITEMS : "USERS.id = ITEMS.user_id"
+    USERS ||--o{ COMMENTS : "USERS.id = COMMENTS.user_id"
+    USERS ||--o{ ORDERS : "USERS.id = ORDERS.user_id"
+    USERS ||--o{ ITEM_LIKES : "USERS.id = ITEM_LIKES.user_id"
+    USERS ||--o{ MESSAGES : "USERS.id = MESSAGES.user_id"
+    USERS ||--o{ RATINGS : "USERS.id = RATINGS.rater_id"
+    USERS ||--o{ RATINGS : "USERS.id = RATINGS.rated_id"
+    
+    ITEMS ||--o{ COMMENTS : "ITEMS.id = COMMENTS.item_id"
+    ITEMS ||--o{ ORDERS : "ITEMS.id = ORDERS.item_id"
+    ITEMS ||--o{ ITEM_LIKES : "ITEMS.id = ITEM_LIKES.item_id"
+    ITEMS ||--|{ CATEGORY_ITEMS : "ITEMS.id = CATEGORY_ITEMS.item_id"
+    ITEMS ||--o{ MESSAGES : "ITEMS.id = MESSAGES.item_id"
+    
+    CATEGORIES ||--o{ CATEGORY_ITEMS : "CATEGORIES.id = CATEGORY_ITEMS.category_id"
+    
+    ORDERS ||--o{ RATINGS : "ORDERS.id = RATINGS.order_id"

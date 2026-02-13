@@ -1,0 +1,311 @@
+/* 商品購入画面 */
+.p-purchase {
+    max-width: 1200px;
+    margin: 24px auto 64px;
+    padding: 0 24px;
+}
+
+.p-purchase__main {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 150px;
+    align-items: start;
+}
+
+/* 左側（商品情報・フォーム） */
+.p-purchase__left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.p-purchase__product {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.p-purchase__product-image {
+    width: 150px;
+    height: 150px;
+    background: #ddd;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.p-purchase__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.p-purchase__product-info {
+    flex: 1;
+}
+
+.p-purchase__product-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #111;
+}
+
+.p-purchase__product-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+}
+
+.p-purchase__divider {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 0;
+}
+
+.p-purchase__section {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.p-purchase__section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-purchase__section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+}
+
+.p-purchase__change-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.p-purchase__change-link:hover {
+    text-decoration: underline;
+}
+
+.p-purchase__select {
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fff;
+    width: 300px;
+    height: 34px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.p-purchase__address {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin-left: 42px;
+    font-weight: 460;
+}
+
+.p-purchase__textarea {
+    height: auto;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+/* 右側（注文サマリー） */
+.p-purchase__right {
+    position: sticky;
+    top: 24px;
+}
+
+.p-purchase__summary {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.p-purchase__summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.p-purchase__summary-label {
+    font-size: 16px;
+    color: #111;
+    text-align: center;
+    flex: 1;
+}
+
+.p-purchase__summary-value {
+ 
+    color: #111;
+    text-align: center;
+    flex: 1;
+}
+
+.p-purchase__summary-row:first-child .p-purchase__summary-value {
+    font-size: 20px;
+       font-weight: 600;
+}
+
+.p-purchase__summary-row:last-child .p-purchase__summary-value {
+    font-size: 14px;
+       font-weight: 500;
+}
+
+.p-purchase__buy-btn {
+    width: 100%;
+    height: 50px;
+    background: #f12b2b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.p-purchase__buy-btn:hover {
+    background: #e60033;
+}
+
+.p-purchase__buy-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* タブレット対応 (768px - 1000px) */
+@media (min-width: 768px) and (max-width: 1000px) {
+    .p-purchase {
+        padding: 0 clamp(12px, 3vw, 20px);
+    }
+    
+    .p-purchase__main {
+        gap: clamp(60px, 8vw, 120px);
+    }
+    
+    .p-purchase__right {
+        width: clamp(300px, 38vw, 340px);
+    }
+    
+    .p-purchase__product-image {
+        width: clamp(120px, 15vw, 140px);
+        height: clamp(120px, 15vw, 140px);
+    }
+    
+    .p-purchase__product-name {
+        font-size: clamp(20px, 2.2vw, 22px);
+    }
+    
+    .p-purchase__product-price {
+        font-size: clamp(18px, 2vw, 20px);
+    }
+    
+    .p-purchase__section-title {
+        font-size: clamp(16px, 1.8vw, 18px);
+    }
+    
+    .p-purchase__select {
+        width: clamp(240px, 28vw, 280px);
+        font-size: clamp(14px, 1.5vw, 16px);
+    }
+    
+    .p-purchase__address {
+        font-size: clamp(14px, 1.5vw, 16px);
+    }
+    
+    .p-purchase__summary-label,
+    .p-purchase__summary-value {
+        font-size: clamp(14px, 1.5vw, 16px);
+    }
+    
+    .p-purchase__summary-row:first-child .p-purchase__summary-value {
+        font-size: clamp(18px, 2vw, 20px);
+    }
+    
+    .p-purchase__buy-btn {
+        height: 46px;
+        font-size: clamp(16px, 1.8vw, 18px);
+    }
+}
+
+/* レスポンシブ対応 (767px以下) */
+@media (max-width: 767px) {
+    .p-purchase {
+        padding: 0 clamp(12px, 3vw, 20px);
+    }
+    
+    .p-purchase__main {
+        gap: clamp(40px, 6vw, 80px);
+    }
+    
+    .p-purchase__right {
+        width: clamp(280px, 35vw, 320px);
+    }
+    
+    .p-purchase__product-image {
+        width: clamp(100px, 12vw, 130px);
+        height: clamp(100px, 12vw, 130px);
+    }
+    
+    .p-purchase__product-name {
+        font-size: clamp(18px, 2vw, 20px);
+    }
+    
+    .p-purchase__product-price {
+        font-size: clamp(16px, 1.8vw, 18px);
+    }
+    
+    .p-purchase__section-title {
+        font-size: clamp(14px, 1.6vw, 16px);
+    }
+    
+    .p-purchase__select {
+        width: clamp(200px, 25vw, 260px);
+        font-size: clamp(13px, 1.4vw, 15px);
+        height: clamp(32px, 3.5vw, 38px);
+    }
+    
+    .p-purchase__address {
+        font-size: clamp(13px, 1.4vw, 15px);
+    }
+    
+    .p-purchase__change-link {
+        font-size: clamp(12px, 1.3vw, 14px);
+    }
+    
+    .p-purchase__summary-label,
+    .p-purchase__summary-value {
+        font-size: clamp(13px, 1.4vw, 15px);
+        padding: clamp(12px, 1.5vw, 16px) clamp(16px, 2vw, 20px);
+    }
+    
+    .p-purchase__summary-row:first-child .p-purchase__summary-value {
+        font-size: clamp(16px, 1.8vw, 18px);
+    }
+    
+    .p-purchase__buy-btn {
+        height: clamp(42px, 5vw, 46px);
+        font-size: clamp(14px, 1.6vw, 16px);
+    }
+}
